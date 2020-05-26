@@ -40,7 +40,7 @@ static int l_text_new(lua_State * L)
 	text->utf8 = strdup(utf8);
 	text->family = strdup(family);
 	memcpy(&text->c, c, sizeof(struct color_t));
-	text_init(&text->txt, text->utf8, -1, &text->c, ((struct vmctx_t *)luahelper_vmctx(L))->f, text->family, size);
+	text_init(&text->txt, text->utf8, &text->c, ((struct vmctx_t *)luahelper_vmctx(L))->f, text->family, size);
 	luaL_setmetatable(L, MT_TEXT);
 	return 1;
 }

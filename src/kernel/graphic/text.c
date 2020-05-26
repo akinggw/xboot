@@ -35,12 +35,11 @@
 #include <graphic/font.h>
 #include <graphic/text.h>
 
-void text_init(struct text_t * txt, const char * utf8, int len, struct color_t * c, struct font_context_t * fctx, const char * family, int size)
+void text_init(struct text_t * txt, const char * utf8, struct color_t * c, struct font_context_t * fctx, const char * family, int size)
 {
 	if(txt)
 	{
 		txt->utf8 = utf8;
-		txt->len = (len < 0) ? strlen(utf8) : len;
 		txt->c = c;
 		txt->fctx = fctx;
 		txt->family = family;
@@ -54,7 +53,6 @@ void text_set_text(struct text_t * txt, const char * utf8, int len)
 	if(txt)
 	{
 		txt->utf8 = utf8;
-		txt->len = (len < 0) ? strlen(utf8) : len;
 		calc_text_extent(txt);
 	}
 }
